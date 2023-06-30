@@ -56,7 +56,7 @@ public class Customer {
 	@Column
 	private String custIncomeLevel;
 	@Column
-	private int custCreditLimit;
+	private int custCreditLimit;	
 	@Column
 	private String custEmail;
 	@Column
