@@ -23,55 +23,73 @@ import lombok.ToString;
 @AllArgsConstructor
 @Entity
 @Table(name="products")
-public class Products {
+public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int prodId;
+	
 	@Column(name="prod_name")
 	private String prodName;
+	
 	@Column(name="prod_desc")
 	private String prodDesc;
+	
 	@Column(name="prod_subcategory")
 	private String prodSubcategory;
+	
 	@Column(name="prod_subcategory_id")
 	private int prodSubcategoryId;
+	
 	@Column(name="prod_subcategory_desc")
 	private String prodSubcategoryDesc;
+	
 	@Column(name="prod_category")
 	private String prodCategory;
+	
 	@Column(name="prod_category_id")
 	private int prodCategoryId;
+	
 	@Column(name="prod_cetegory_desc")
 	private String prodCategoryDesc;
+	
 	@Column(name="prod_weight_desc")
 	private int prodWeightClass;
+	
 	@Column(name="prod_unit_of_measure")
 	private String prodUnitOfMeasure;
+	
 	@Column(name="prod_pack_size")
 	private String prodPackSize;
+	
 	@Column(name="prod_supplier_id")
 	private int supplierId;
+	
 	@Column(name="prod_status")
 	private String prodStatus;
+	
 	@Column(name="prod_list_price")
 	private double prodListPrice;
+	
 	@Column(name="prod_min_price")
 	private double prodMinPrice;
+	
 	@Column(name="prod_total")
 	private String prodTotal;
+	
 	@Column(name="prod_total_id")
 	private int prodTotalId;
+	
 	@Column(name="prod_src_id")
 	private int prodSrcId;
+	
 	@Column(name="prod_eff_form")
 	private Date prodEffFrom;
+	
 	@Column(name="prod_eff_to")
 	private Date prodEffTo;
+	
 	@Column(name="prod_valid")
 	private String prodValid;
 	
-	
-	
-
 }

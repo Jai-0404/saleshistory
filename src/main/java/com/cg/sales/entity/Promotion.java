@@ -28,34 +28,34 @@ public class Promotion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int promoId;
     
-    @Column
+    @Column(name="promo_name")
     private String promoName;
     
-    @Column
+    @Column(name="promo_subcategory")
     private String promoSubcategory;
     
-    @Column
+    @Column(name="promo_subcategory_id")
     private int promoSubcategoryId;
     
-    @Column
+    @Column(name="promo_category")
     private String promoCategory;
     
-    @Column
+    @Column(name="promo_category_id")
     private int promoCategoryId;
     
-    @Column
+    @Column(name="promo_cost")
     private double promoCost;
     
-    @Column
+    @Column(name="promo_begin_date")
     private Date promoBeginDate;
     
-    @Column
+    @Column(name="promo_end_date")
     private Date promoEndDate;
     
-    @Column
+    @Column(name="promo_total")
     private String promoTotal;
     
-    @Column
+    @Column(name="promo_total_id")
     private int promoTotalId;
 
 }

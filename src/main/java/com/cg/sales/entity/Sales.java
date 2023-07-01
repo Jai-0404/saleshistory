@@ -22,19 +22,25 @@ import lombok.ToString;
 @Table(name="sales")
 public class Sales {
 	
-	@Id
+	@Column(name="prod_id")
 	private int prodId;
-	@Column
+	
+	@Column(name="cust_id")
 	private int custId;
-	@Column
+	
+	@Column(name="time_id")
 	private Date timeId;
-	@Column
+	
+	@Column(name="channel_id")
 	private int channelId;
-	@Column
+	
+	@Column(name="promo_id")
 	private int promoId;
-	@Column
+	
+	@Column(name="quantity_sold")
 	private int quantitySold;
-	@Column
+	
+	@Column(name="amount_sold")
 	private double amountSold;
 
 }
