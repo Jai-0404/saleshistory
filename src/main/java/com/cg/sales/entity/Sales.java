@@ -22,7 +22,8 @@ import lombok.ToString;
 @Table(name="sales")
 public class Sales {
 	
-	@Column(name="prod_id")
+	@Id
+	//@Column(name="prod_id")
 	private int prodId;
 	
 	@Column(name="cust_id")
