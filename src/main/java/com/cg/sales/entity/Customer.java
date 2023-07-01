@@ -27,48 +27,70 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int custId;
-	@Column
+	
+	@Column(name="cust_first_name")
 	private String custFirstName;
-	@Column
+	
+	@Column(name="cust_last_name")
 	private String custLastName;
-	@Column
+	
+	@Column(name="cust_gender")
 	private char custGender;
-	@Column
+	
+	@Column(name="cust_year_of_birth")
 	private int custYearOfBirth;
-	@Column
+	
+	@Column(name="cust_martial_name")
 	private String custMartialStatus;
-	@Column
+	
+	@Column(name="cust_street_address")
 	private String custStreetAddress;
-	@Column
+	
+	@Column(name="cust_postal_code")
 	private String custPostalCode;
-	@Column
+	
+	@Column(name="cust_city")
 	private String custCity;
-	@Column
+	
+	@Column(name="cust_city_id")
 	private int custCityId;
-	@Column
+	
+	@Column(name="cust_state_province")
 	private String custStateProvince;
-	@Column
+	
+	@Column(name="cust_state_id")
 	private int custStateId;
-	@Column
+	
+	@Column(name="cust_country_id")
 	private int countryId;
-	@Column
+	
+	@Column(name="cust_main_phone_INT")
 	private String custMainPhoneINT;
-	@Column
+	
+	@Column(name="cust_income_level")
 	private String custIncomeLevel;
-	@Column
-	private int custCreditLimit;	
-	@Column
+	
+	@Column(name="cust_credit_limit")
+	private int custCreditLimit;
+	
+	@Column(name="cust_email")
 	private String custEmail;
-	@Column
+	
+	@Column(name="cust_total")
 	private String custTotal;
-	@Column
+	
+	@Column(name="cust_total_id")
 	private int custTotalId;
-	@Column
+	
+	@Column(name="cust_src_id")
 	private int custSrcId;
-	@Column
+	
+	@Column(name="cust_eff_from")
 	private Date custEffFrom;
-	@Column
+	
+	@Column(name="cust_eff_to")
 	private Date custEffTo;
-	@Column
+	
+	@Column(name="cust_valid")
 	private String custValid;
 }
