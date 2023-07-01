@@ -27,21 +27,21 @@ public class Countries {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int countryId;
-	@Column
+	@Column(name="country_is_code")
 	private String countryIsoCode;
-	@Column
+	@Column(name="country_name")
 	private String countryName;
-	@Column
+	@Column(name="country_subregion")
 	private String countrySubregion;
-	@Column
+	@Column(name="country_subregion_id")
 	private int countrySubregionId;
-	@Column
+	@Column(name="country_region")
 	private String countryRegion;
-	@Column
+	@Column(name="country_region_id")
 	private int countryRegionId;
-	@Column
+	@Column(name="country_total")
 	private String countryTotal;
-	@Column
+	@Column(name="country_total_id")
 	private int countryTotalId;
 	
 }

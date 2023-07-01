@@ -28,47 +28,47 @@ public class Products {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int prodId;
-	@Column
+	@Column(name="prod_name")
 	private String prodName;
-	@Column
+	@Column(name="prod_desc")
 	private String prodDesc;
-	@Column
+	@Column(name="prod_subcategory")
 	private String prodSubcategory;
-	@Column
+	@Column(name="prod_subcategory_id")
 	private int prodSubcategoryId;
-	@Column
+	@Column(name="prod_subcategory_desc")
 	private String prodSubcategoryDesc;
-	@Column
+	@Column(name="prod_category")
 	private String prodCategory;
-	@Column
+	@Column(name="prod_category_id")
 	private int prodCategoryId;
-	@Column
+	@Column(name="prod_cetegory_desc")
 	private String prodCategoryDesc;
-	@Column
+	@Column(name="prod_weight_desc")
 	private int prodWeightClass;
-	@Column
+	@Column(name="prod_unit_of_measure")
 	private String prodUnitOfMeasure;
-	@Column
+	@Column(name="prod_pack_size")
 	private String prodPackSize;
-	@Column
+	@Column(name="prod_supplier_id")
 	private int supplierId;
-	@Column
+	@Column(name="prod_status")
 	private String prodStatus;
-	@Column
+	@Column(name="prod_list_price")
 	private double prodListPrice;
-	@Column
+	@Column(name="prod_min_price")
 	private double prodMinPrice;
-	@Column
+	@Column(name="prod_total")
 	private String prodTotal;
-	@Column
+	@Column(name="prod_total_id")
 	private int prodTotalId;
-	@Column
+	@Column(name="prod_src_id")
 	private int prodSrcId;
-	@Column
+	@Column(name="prod_eff_form")
 	private Date prodEffFrom;
-	@Column
+	@Column(name="prod_eff_to")
 	private Date prodEffTo;
-	@Column
+	@Column(name="prod_valid")
 	private String prodValid;
 	
 	
