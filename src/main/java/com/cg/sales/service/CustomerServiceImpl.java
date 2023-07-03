@@ -40,6 +40,11 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
+	public List<Customer> searchCustomerByCity(String custCity) {
+		return customerRepository.findByCustCity(custCity);
+	}
+	
+	@Override
 	public void deleteCustomer(Integer custId) {
 		Customer customer = getCustomer(custId);
 		customerRepository.deleteById(customer.getCustId());
@@ -56,8 +61,20 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<Customer> searchCustomerByCity(String custCity) {
-		return customerRepository.findByCustCity(custCity);
+	public List<Customer> searchCustomerByIncome(String custIncomeLevel) {
+		return customerRepository.findByCustIncomeLevel(custIncomeLevel);
+	}
+
+	@Override
+	public Customer updateCustomerCreditLimit(Integer custId,Customer customer) {
+		Customer existingCustomer = getCustomer(custId);
+		existingCustomer.setCustCreditLimit(customer.getCustCreditLimit());
+		return customerRepository.save(existingCustomer);
+	}
+
+	@Override
+	public List<Customer> searchCustomerByCreditLimit(Integer custCreditLimit) {
+		return customerRepository.findByCustCreditLimit(custCreditLimit);
 	}
 
 

@@ -33,19 +33,26 @@ public class CustomerController {
 	 */
 	@PostMapping(value="/customers")
 	public ResponseEntity<String> saveCustomer(@RequestBody Customer customer){
-		//Customer savedCustomer = customerService.saveCustomer(customer);
-		//ResponseEntity<Customer> re = new ResponseEntity<Customer>(savedCustomer,HttpStatus.CREATED);
-		//return re;
-		
 		customerService.saveCustomer(customer);
 		return ResponseEntity.status(HttpStatus.CREATED).body("Record Created Successfully");
 		
 	}
 	
 	/*
+	 * Get Mapping for getting Customer by Id
+	 */
+	@GetMapping(value = "/customers/{custId}")
+	public ResponseEntity<Customer> getProduct(@PathVariable Integer custId) {
+		Customer customer = customerService.getCustomer(custId);
+		ResponseEntity<Customer> re=new ResponseEntity<Customer>(customer,HttpStatus.OK);
+		return re;
+		
+	}
+	
+	/*
 	 * Get Mapping for All Customers
 	 */
-	@GetMapping(value = "customers/allCustomers")
+	@GetMapping(value = "/customers/allCustomers")
 	public ResponseEntity<List<Customer>> getAllCustomers() {
 		List<Customer> allCustomers = customerService.getAllCustomers();		
 		//ResponseEntity<List<Customer>> re = new ResponseEntity<List<Customer>>(allCustomers,HttpStatus.OK);
@@ -53,16 +60,18 @@ public class CustomerController {
 		
 	}
 	
+	
 	/*
 	 * Put Mapping for Customer Entity Update
 	 */
 	@PutMapping(value = "/customers/{custId}")
-	public ResponseEntity<Customer> updateProduct(@PathVariable Integer custId,@RequestBody Customer customer){
+	public ResponseEntity<Customer> updateCustomer(@PathVariable Integer custId,@RequestBody Customer customer){
 				
 		Customer updatedCustomer= customerService.updateCustomer(custId, customer);
 		ResponseEntity<Customer> re=new ResponseEntity<Customer>(updatedCustomer,HttpStatus.OK);
 		return re;
 	}
+	
 	
 	/*
 	 * Delete Mapping for Customer Entity
@@ -74,21 +83,50 @@ public class CustomerController {
 		return re;		
 	}
 	
+	
 	/*
 	 * Get Mapping for Customer by FirstName
 	 */
-	@GetMapping(value="/customers/{custFirstName}")
+	@GetMapping(value="/customers/name/{custFirstName}")
 	public ResponseEntity<List<Customer>> searchCustomerByFirstName(@PathVariable String custFirstName){
 		List<Customer> customers = customerService.searchCustomerByFirstname(custFirstName);
 		return ResponseEntity.ok(customers);
 	}
 	
+	
 	/*
 	 * Get Mapping for Customer by City
 	 */
-	@GetMapping(value="/customers/{custCity}")
+	@GetMapping(value="/customers/city/{custCity}")
 	public ResponseEntity<List<Customer>> searchCustomerByCity(@PathVariable String custCity){
 		List<Customer> customers = customerService.searchCustomerByCity(custCity);
 		return ResponseEntity.ok(customers);
 	}
+	
+	
+	/*
+	 * Get Mapping for Customer by income
+	 */
+	@GetMapping(value="/customers/income/{custIncomeLevel}")
+	public ResponseEntity<List<Customer>> searchCustomerIncome(@PathVariable String custIncomeLevel){
+		List<Customer> customers = customerService.searchCustomerByIncome(custIncomeLevel);
+		return ResponseEntity.ok(customers);
+	}
+	
+	@GetMapping(value="/customers/limit/{custCreditLimit}")
+	public ResponseEntity<List<Customer>> searchCustomerByCreditLimit(@PathVariable Integer custCreditLimit){
+		List<Customer> customers = customerService.searchCustomerByCreditLimit(custCreditLimit);
+		return ResponseEntity.ok(customers);
+	}
+	
+	/*
+	 * Put Mapping for Customer Entity Credit Limit
+	 */
+	@PutMapping(value = "/customers/creditlimit/{custId}")
+	public ResponseEntity<Customer> updateCustomers(@PathVariable Integer custId,@RequestBody Customer customer){
+				
+		Customer updatedCustomer= customerService.updateCustomerCreditLimit(custId, customer);
+		ResponseEntity<Customer> re=new ResponseEntity<Customer>(updatedCustomer,HttpStatus.OK);
+		return re;
+}
 }

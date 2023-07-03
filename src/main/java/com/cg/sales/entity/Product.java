@@ -50,10 +50,10 @@ public class Product {
 	@Column(name="prod_category_id")
 	private int prodCategoryId;
 	
-	@Column(name="prod_cetegory_desc")
+	@Column(name="prod_category_desc")
 	private String prodCategoryDesc;
 	
-	@Column(name="prod_weight_desc")
+	@Column(name="prod_weight_class")
 	private int prodWeightClass;
 	
 	@Column(name="prod_unit_of_measure")
@@ -62,7 +62,7 @@ public class Product {
 	@Column(name="prod_pack_size")
 	private String prodPackSize;
 	
-	@Column(name="prod_supplier_id")
+	@Column(name="supplier_id")
 	private int supplierId;
 	
 	@Column(name="prod_status")
@@ -83,7 +83,7 @@ public class Product {
 	@Column(name="prod_src_id")
 	private Integer prodSrcId;
 	
-	@Column(name="prod_eff_form")
+	@Column(name="prod_eff_from")
 	private Date prodEffFrom;
 	
 	@Column(name="prod_eff_to")
