@@ -7,7 +7,9 @@ import com.cg.sales.entity.Customer;
 public interface CustomerService {
 	public Customer saveCustomer(Customer customer);
 	public List<Customer> getAllCustomers();
-	public Customer getCustomer(Integer cistId);
-	public void deleteProduct(Integer custId);
-	public Customer updateProduct(Integer custId,Customer customer);
+	public Customer getCustomer(Integer custId);
+	public List<Customer> searchCustomerByFirstname(String custFirstName);
+	public List<Customer> searchCustomerByCity(String custCity);
+	public void deleteCustomer(Integer custId);
+	public Customer updateCustomer(Integer custId,Customer customer);
 }

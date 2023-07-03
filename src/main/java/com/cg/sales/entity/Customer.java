@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,7 +44,7 @@ public class Customer {
 	@Column(name="cust_year_of_birth")
 	private int custYearOfBirth;
 	
-	@Column(name="cust_martial_name")
+	@Column(name="cust_marital_status")
 	private String custMartialStatus;
 	
 	@Column(name="cust_street_address")
@@ -61,12 +62,12 @@ public class Customer {
 	@Column(name="cust_state_province")
 	private String custStateProvince;
 	
-	@Column(name="cust_state_id")
+	@Column(name="cust_state_province_id")
 	private int custStateId;
 	
 	//@Column(name="cust_country_id")
 	@ManyToOne(cascade = CascadeType.ALL)
-	//@JoinColumn(name="country_id", referencedColumnName = "countryId")
+	@JoinColumn(name="country_id")
 	private Countries country;
 	
 	@Column(name="cust_main_phone_INT")
@@ -88,7 +89,7 @@ public class Customer {
 	private int custTotalId;
 	
 	@Column(name="cust_src_id")
-	private int custSrcId;
+	private Integer custSrcId;
 	
 	@Column(name="cust_eff_from")
 	private Date custEffFrom;

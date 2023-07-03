@@ -33,15 +33,20 @@ public class CustomerServiceImpl implements CustomerService {
 	public Customer getCustomer(Integer custId) {
 		return customerRepository.findById(custId).orElseThrow(()->new CustomerNotFoundException("Customer with ID: "+custId+",not available "));
 	}
+	
+	@Override
+	public List<Customer> searchCustomerByFirstname(String custFirstName) {
+		return customerRepository.findByCustFirstName(custFirstName);
+	}
 
 	@Override
-	public void deleteProduct(Integer custId) {
+	public void deleteCustomer(Integer custId) {
 		Customer customer = getCustomer(custId);
 		customerRepository.deleteById(customer.getCustId());
 	}
 
 	@Override
-	public Customer updateProduct(Integer custId, Customer customer) {
+	public Customer updateCustomer(Integer custId, Customer customer) {
 		Customer existingCustomer = getCustomer(custId);
 		existingCustomer.setCustFirstName(customer.getCustFirstName());
 		existingCustomer.setCustLastName(customer.getCustLastName());
@@ -49,5 +54,11 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return customerRepository.save(existingCustomer);
 	}
+
+	@Override
+	public List<Customer> searchCustomerByCity(String custCity) {
+		return customerRepository.findByCustCity(custCity);
+	}
+
 
 }

@@ -81,7 +81,7 @@ public class Product {
 	private int prodTotalId;
 	
 	@Column(name="prod_src_id")
-	private int prodSrcId;
+	private Integer prodSrcId;
 	
 	@Column(name="prod_eff_form")
 	private Date prodEffFrom;

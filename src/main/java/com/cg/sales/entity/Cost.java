@@ -25,10 +25,9 @@ import lombok.ToString;
 public class Cost {
 
 	@Id
-	private String cost;
 	//@Column(name="prod_id")
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Product product;
+	//@ManyToOne(cascade = CascadeType.ALL)
+	private int prod_id	;
 	
 	//@Column(name="time_id")
 	@ManyToOne(cascade = CascadeType.ALL)
