@@ -2,9 +2,11 @@ package com.cg.sales.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -23,16 +25,26 @@ import lombok.ToString;
 public class Cost {
 
 	@Id
+	private String cost;
 	//@Column(name="prod_id")
-	private int prodId;
-	@Column(name="time_id")
-	private int timeId;
-	@Column(name="promo_id")
-	private Date promoId;
-	@Column(name="channel_id")
-	private int channelId;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Product product;
+	
+	//@Column(name="time_id")
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Time time;
+	
+	//@Column(name="promo_id")
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Promotion promotion;
+	
+	//@Column(name="channel_id")
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Channel channel;
+	
 	@Column(name="unit_cost")
 	private int unitCost;
+	
 	@Column(name="unit_price")
 	private double unitPrice;
 }
