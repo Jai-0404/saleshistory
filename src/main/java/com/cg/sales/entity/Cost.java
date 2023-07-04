@@ -1,9 +1,8 @@
 package com.cg.sales.entity;
 
-import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -23,11 +22,11 @@ import lombok.ToString;
 @Entity
 @Table(name="costs")
 public class Cost {
-
-	@Id
+	
+    @Id
 	//@Column(name="prod_id")
 	//@ManyToOne(cascade = CascadeType.ALL)
-	private int prod_id	;
+	private int prodId;
 	
 	//@Column(name="time_id")
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -37,7 +36,7 @@ public class Cost {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Promotion promotion;
 	
-	//@Column(name="channel_id")
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Channel channel;
 	

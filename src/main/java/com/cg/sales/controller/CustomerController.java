@@ -35,7 +35,6 @@ public class CustomerController {
 	public ResponseEntity<String> saveCustomer(@RequestBody Customer customer){
 		customerService.saveCustomer(customer);
 		return ResponseEntity.status(HttpStatus.CREATED).body("Record Created Successfully");
-		
 	}
 	
 	/*

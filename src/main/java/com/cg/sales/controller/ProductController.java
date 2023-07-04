@@ -1,6 +1,5 @@
 package com.cg.sales.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.sales.entity.Customer;
 import com.cg.sales.entity.Product;
 import com.cg.sales.service.ProductService;
 
@@ -35,7 +33,7 @@ public class ProductController {
 	}
 	
 	/*
-	 * Get Mapping for getting Customer by Id
+	 * Get Mapping for getting Product by Id
 	 */
 	@GetMapping(value = "/products/{prodId}")
 	public ResponseEntity<Product> getProduct(@PathVariable Integer prodId) {

@@ -10,4 +10,5 @@ public interface ProductService {
 	public Product saveProduct(Product product);
 	public Product getProduct(Integer prodId);
 	public List<Product> getAllProducts();
+	
 }
