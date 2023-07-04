@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.sales.entity.Customer;
+import com.cg.sales.repository.CustomerRepository;
 import com.cg.sales.service.CustomerService;
+import com.google.common.base.Optional;
 
 @RestController
 @RequestMapping(value="/api/v1")
@@ -27,6 +30,7 @@ public class CustomerController {
 	public void setCustomerService(CustomerService customerService) {
 		this.customerService = customerService;
 	}
+
 	
 	/*
 	 * Post Mapping for Customer Entity
@@ -51,7 +55,7 @@ public class CustomerController {
 	/*
 	 * Get Mapping for All Customers
 	 */
-	@GetMapping(value = "/customers/allCustomers")
+	@GetMapping(value = "/customers")
 	public ResponseEntity<List<Customer>> getAllCustomers() {
 		List<Customer> allCustomers = customerService.getAllCustomers();		
 		//ResponseEntity<List<Customer>> re = new ResponseEntity<List<Customer>>(allCustomers,HttpStatus.OK);
@@ -78,16 +82,15 @@ public class CustomerController {
 	@DeleteMapping(value = "/customers/{custId}")
 	public ResponseEntity<String> deleteCustomer(@PathVariable Integer custId){
 		customerService.deleteCustomer(custId);
-		ResponseEntity<String> re=new ResponseEntity<String>("Customer with Id:"+custId+" Deleted Successfully!",HttpStatus.OK);
-		return re;		
+		ResponseEntity<String> re=new ResponseEntity<String>("Customer with Id:"+custId+" Deleted Successfully!",HttpStatus.OK);		return re;
 	}
 	
 	
 	/*
 	 * Get Mapping for Customer by FirstName
 	 */
-	@GetMapping(value="/customers/name/{custFirstName}")
-	public ResponseEntity<List<Customer>> searchCustomerByFirstName(@PathVariable String custFirstName){
+	@GetMapping(value="/customers/{custFirstName}")
+	public ResponseEntity<List<Customer>> searchCustomerByFirstName(@RequestParam(value="custFirstName") String custFirstName){
 		List<Customer> customers = customerService.searchCustomerByFirstname(custFirstName);
 		return ResponseEntity.ok(customers);
 	}
@@ -96,8 +99,8 @@ public class CustomerController {
 	/*
 	 * Get Mapping for Customer by City
 	 */
-	@GetMapping(value="/customers/city/{custCity}")
-	public ResponseEntity<List<Customer>> searchCustomerByCity(@PathVariable String custCity){
+	@GetMapping(value="/customers/{custCity}")
+	public ResponseEntity<List<Customer>> searchCustomerByCity(@RequestParam(value="custCity") String custCity){
 		List<Customer> customers = customerService.searchCustomerByCity(custCity);
 		return ResponseEntity.ok(customers);
 	}
@@ -106,14 +109,14 @@ public class CustomerController {
 	/*
 	 * Get Mapping for Customer by income
 	 */
-	@GetMapping(value="/customers/income/{custIncomeLevel}")
-	public ResponseEntity<List<Customer>> searchCustomerIncome(@PathVariable String custIncomeLevel){
+	@GetMapping(value="/customers/{custIncomeLevel}")
+	public ResponseEntity<List<Customer>> searchCustomerIncome(@RequestParam(value="custIncomeLevel") String custIncomeLevel){
 		List<Customer> customers = customerService.searchCustomerByIncome(custIncomeLevel);
 		return ResponseEntity.ok(customers);
 	}
 	
-	@GetMapping(value="/customers/limit/{custCreditLimit}")
-	public ResponseEntity<List<Customer>> searchCustomerByCreditLimit(@PathVariable Integer custCreditLimit){
+	@GetMapping(value="/customers/{custCreditLimit}")
+	public ResponseEntity<List<Customer>> searchCustomerByCreditLimit(@RequestParam(value="custCreditLimit") Integer custCreditLimit){
 		List<Customer> customers = customerService.searchCustomerByCreditLimit(custCreditLimit);
 		return ResponseEntity.ok(customers);
 	}

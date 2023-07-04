@@ -80,13 +80,13 @@ public class Time {
     @Column(name="fiscal_month_name")
     private String fiscalMonthName;
 
-    @Column(name="calendar_quarter_desc")
-    private String calendarQuarterDesc;    //char(7)
+    @Column(name="calendar_quarter_desc",columnDefinition = "char(7)")
+    private String calendarQuarterDesc; 
 
     @Column(name="calendar_quarter_id")
     private int calendarQuarterId;
 
-    @Column(name="fiscal_quarter_desc")
+    @Column(name="fiscal_quarter_desc",columnDefinition = "char(7)")
     private String fiscalQuarterDesc;
 
     @Column(name="fiscal_quarter_id")

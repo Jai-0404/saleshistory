@@ -52,13 +52,13 @@ public class SupplementaryDemographic {
     @Column(name="bulk_pack_diskettes")
     private int bulkPackDiskettes;
 
-    @Column(name="flat_plane_monitor")
+    @Column(name="flat_panel_monitor")
     private int flatPanelMonotor;
 
     @Column(name="home_theater_package")
     private int homeTheaterPackage;
 
-    @Column(name="bookeeping_application")
+    @Column(name="bookkeeping_application")
     private int bookkeepingApplication;
 
     @Column(name="printer_supplies")

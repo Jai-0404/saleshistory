@@ -1,5 +1,6 @@
 package com.cg.sales.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -69,10 +70,10 @@ public class Product {
 	private String prodStatus;
 	
 	@Column(name="prod_list_price")
-	private double prodListPrice;
+	private BigDecimal prodListPrice;
 	
 	@Column(name="prod_min_price")
-	private double prodMinPrice;
+	private BigDecimal prodMinPrice;
 	
 	@Column(name="prod_total")
 	private String prodTotal;
