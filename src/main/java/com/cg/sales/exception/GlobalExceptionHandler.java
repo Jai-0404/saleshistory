@@ -10,17 +10,20 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(CustomerNotFoundException.class)
 	public ResponseEntity<String> handleCustomerNotFoundException(CustomerNotFoundException cnfe){
-		ResponseEntity re=new ResponseEntity<String>(cnfe.getMessage(),HttpStatus.NOT_FOUND);
+		ResponseEntity<String> re=new ResponseEntity<String>(cnfe.getMessage(),HttpStatus.NOT_FOUND);
 		return re;
 	}
 	
 	@ExceptionHandler(ProductNotFoundException.class)
 	public ResponseEntity<String> handleProductNotFoundException(ProductNotFoundException pnfe){
-		ResponseEntity re=new ResponseEntity<String>(pnfe.getMessage(),HttpStatus.NOT_FOUND);
+		ResponseEntity<String> re=new ResponseEntity<String>(pnfe.getMessage(),HttpStatus.NOT_FOUND);
 		return re;
 	}
 	
-	
-	
+	@ExceptionHandler(CountryNotFoundException.class)
+	public ResponseEntity<String> handleCountryNotFoundException(CountryNotFoundException cnfe){
+		ResponseEntity<String> re = new ResponseEntity<String>(cnfe.getMessage(),HttpStatus.NOT_FOUND);
+		return re;
+	}
 	
 }

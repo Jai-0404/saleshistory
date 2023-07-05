@@ -15,6 +15,4 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 	List<Customer> findByCustCity(String custCity);
 	List<Customer> findByCustIncomeLevel(String custIncomeLevel);
 	List<Customer> findByCustCreditLimit(Integer custCreditLimit);
-	
-	List<Customer> findByCountry(Countries country);
 }

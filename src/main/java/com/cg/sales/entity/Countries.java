@@ -18,10 +18,10 @@ import lombok.ToString;
 
 @Setter
 @Getter
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Entity
 @Table(name="countries")
 
 public class Countries {

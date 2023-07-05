@@ -1,5 +1,6 @@
 package com.cg.sales.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.sales.entity.Countries;
 import com.cg.sales.entity.Customer;
-import com.cg.sales.exception.countryNotFoundException;
+import com.cg.sales.exception.CountryNotFoundException;
 import com.cg.sales.repository.CountriesRepository;
 import com.cg.sales.repository.CustomerRepository;
 
@@ -57,7 +58,7 @@ public class CountriesServiceImpl implements CountriesService {
 
 	@Override
 	public Countries getCountry(Integer countryId) {
-		return countriesRepository.findById(countryId).orElseThrow(()->new countryNotFoundException("Country with ID: "+countryId+",not available"));
+		return countriesRepository.findById(countryId).orElseThrow(()->new CountryNotFoundException("Country with ID: "+countryId+",not available"));
 	}
 
 	@Override
@@ -78,10 +79,9 @@ public class CountriesServiceImpl implements CountriesService {
 			Countries country = customer.getCountry();
 			if(country != null) {
 				String countryName = country.getCountryName();
-				countryCountMap.put(countryName, countryCountMap.getOrDefault(countryCountMap, (int) 0L)+1);
+				countryCountMap.put(countryName, countryCountMap.getOrDefault(countryCountMap,(int) 0L)+1);
 			}
 		}
-		
 		return countryCountMap;
 	}
 
