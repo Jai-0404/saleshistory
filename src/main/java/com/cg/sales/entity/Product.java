@@ -30,52 +30,53 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int prodId;
 	
-	@Column(name="prod_name")
+	
+	@Column(name="prod_name",columnDefinition = "varchar(50)")
 	private String prodName;
 	
-	@Column(name="prod_desc")
+	@Column(name="prod_desc",columnDefinition = "varchar(4000)")
 	private String prodDesc;
 	
-	@Column(name="prod_subcategory")
+	@Column(name="prod_subcategory",columnDefinition = "varchar(50)")
 	private String prodSubcategory;
 	
 	@Column(name="prod_subcategory_id")
 	private int prodSubcategoryId;
 	
-	@Column(name="prod_subcategory_desc")
+	@Column(name="prod_subcategory_desc",columnDefinition = "varchar(2000)")
 	private String prodSubcategoryDesc;
 	
-	@Column(name="prod_category")
+	@Column(name="prod_category",columnDefinition = "varchar(50)")
 	private String prodCategory;
 	
 	@Column(name="prod_category_id")
 	private int prodCategoryId;
 	
-	@Column(name="prod_category_desc")
+	@Column(name="prod_category_desc",columnDefinition = "varchar(2000)")
 	private String prodCategoryDesc;
 	
 	@Column(name="prod_weight_class")
 	private int prodWeightClass;
 	
-	@Column(name="prod_unit_of_measure")
+	@Column(name="prod_unit_of_measure",columnDefinition = "varchar(20)")
 	private String prodUnitOfMeasure;
 	
-	@Column(name="prod_pack_size")
+	@Column(name="prod_pack_size",columnDefinition = "varchar(30)")
 	private String prodPackSize;
 	
 	@Column(name="supplier_id")
 	private int supplierId;
 	
-	@Column(name="prod_status")
+	@Column(name="prod_status",columnDefinition = "varchar(20)")
 	private String prodStatus;
 	
-	@Column(name="prod_list_price")
+	@Column(name="prod_list_price",precision = 8,scale = 2)
 	private BigDecimal prodListPrice;
 	
-	@Column(name="prod_min_price")
+	@Column(name="prod_min_price",precision = 8,scale = 2)
 	private BigDecimal prodMinPrice;
 	
-	@Column(name="prod_total")
+	@Column(name="prod_total",columnDefinition = "varchar(13)")
 	private String prodTotal;
 	
 	@Column(name="prod_total_id")
@@ -90,7 +91,7 @@ public class Product {
 	@Column(name="prod_eff_to")
 	private Date prodEffTo;
 	
-	@Column(name="prod_valid")
+	@Column(name="prod_valid",columnDefinition = "varchar(1)")
 	private String prodValid;
 	
 }

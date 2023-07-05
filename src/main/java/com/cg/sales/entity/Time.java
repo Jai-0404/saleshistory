@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -21,6 +23,7 @@ import lombok.Setter;
 public class Time {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Date timeId;
 
     @Column(name="day_name")

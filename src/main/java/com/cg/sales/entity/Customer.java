@@ -34,7 +34,7 @@ import lombok.ToString;
 public class Customer {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@NotNull(message = "Customer Id may not be null")
 	private int custId;
 	
@@ -77,9 +77,9 @@ public class Customer {
 	@NotNull(message = "State Province may not be null")
 	private int custStateProvinceId;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name="country_id")
-	@NotNull(message = "Country Id may not be null")
+	@NotNull(message="Country Id may not be null")
 	private Countries country;
 	
 	@Column(name="cust_main_phone_INT",columnDefinition = "varchar(40)")
@@ -115,25 +115,25 @@ public class Customer {
 	@Column(name="cust_valid",columnDefinition = "varchar(1)")
 	private String custValid;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.DETACH)
 	@JoinTable(name="sales",
 			joinColumns = {@JoinColumn(name = "custId")},
             inverseJoinColumns = {@JoinColumn(name = "prodId")})
 	private List<Product> products;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.DETACH)
 	@JoinTable(name="sales",
 			joinColumns = {@JoinColumn(name = "custId")},
             inverseJoinColumns = {@JoinColumn(name = "channelId")})
 	private List<Channel> channels;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.DETACH)
 	@JoinTable(name="sales",
 			joinColumns = {@JoinColumn(name = "custId")},
             inverseJoinColumns = {@JoinColumn(name = "timeId")})
 	private List<Time> time;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.DETACH)
 	@JoinTable(name="sales",
 			joinColumns = {@JoinColumn(name = "custId")},
             inverseJoinColumns = {@JoinColumn(name = "promoId")})

@@ -5,14 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cg.sales.entity.Countries;
 import com.cg.sales.entity.Customer;
 import com.cg.sales.exception.CustomerNotFoundException;
+import com.cg.sales.repository.CountriesRepository;
 import com.cg.sales.repository.CustomerRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
 	
 	private CustomerRepository customerRepository;
+	private CountriesRepository countryrepository;
 	
 	@Autowired
 	public void setCustomerRepository(CustomerRepository customerRepository) {

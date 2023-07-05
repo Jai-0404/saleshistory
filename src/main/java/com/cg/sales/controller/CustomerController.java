@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.sales.entity.Customer;
@@ -36,16 +37,17 @@ public class CustomerController {
 	 * Post Mapping for Customer Entity
 	 */
 	@PostMapping(value="/customers")
-	public ResponseEntity<String> saveCustomer(@RequestBody Customer customer){
-		customerService.saveCustomer(customer);
-		return ResponseEntity.status(HttpStatus.CREATED).body("Record Created Successfully");
+	@ResponseStatus(value=HttpStatus.CREATED,reason="Customer Created")
+	public Customer saveCustomer(@RequestBody Customer customer){
+		return customerService.saveCustomer(customer);
+		//return ResponseEntity.status(HttpStatus.CREATED).body("Record Created Successfully");
 	}
 	
 	/*
 	 * Get Mapping for getting Customer by Id
 	 */
 	@GetMapping(value = "/customers/{custId}")
-	public ResponseEntity<Customer> getProduct(@PathVariable Integer custId) {
+	public ResponseEntity<Customer> getCustomer(@RequestParam(value="custId") Integer custId) {
 		Customer customer = customerService.getCustomer(custId);
 		ResponseEntity<Customer> re=new ResponseEntity<Customer>(customer,HttpStatus.OK);
 		return re;
@@ -68,11 +70,12 @@ public class CustomerController {
 	 * Put Mapping for Customer Entity Update
 	 */
 	@PutMapping(value = "/customers/{custId}")
-	public ResponseEntity<Customer> updateCustomer(@PathVariable Integer custId,@RequestBody Customer customer){
+	@ResponseStatus(value=HttpStatus.ACCEPTED, reason="Customer details Updated")
+	public Customer updateCustomer(@PathVariable Integer custId,@RequestBody Customer customer){
 				
 		Customer updatedCustomer= customerService.updateCustomer(custId, customer);
-		ResponseEntity<Customer> re=new ResponseEntity<Customer>(updatedCustomer,HttpStatus.OK);
-		return re;
+		
+		return updatedCustomer;
 	}
 	
 	
@@ -80,9 +83,9 @@ public class CustomerController {
 	 * Delete Mapping for Customer Entity
 	 */
 	@DeleteMapping(value = "/customers/{custId}")
-	public ResponseEntity<String> deleteCustomer(@PathVariable Integer custId){
+	@ResponseStatus(value=HttpStatus.ACCEPTED,reason="Customer Deleted Successfully")
+	public void deleteCustomer(@RequestParam(value="custId") Integer custId){
 		customerService.deleteCustomer(custId);
-		ResponseEntity<String> re=new ResponseEntity<String>("Customer with Id:"+custId+" Deleted Successfully!",HttpStatus.OK);		return re;
 	}
 	
 	
@@ -125,10 +128,10 @@ public class CustomerController {
 	 * Put Mapping for Customer Entity Credit Limit
 	 */
 	@PutMapping(value = "/customers/creditlimit/{custId}")
-	public ResponseEntity<Customer> updateCustomers(@PathVariable Integer custId,@RequestBody Customer customer){
+	@ResponseStatus(value=HttpStatus.OK,reason="Customer credit limit updated successfully")
+	public Customer updateCustomers(@PathVariable Integer custId,@RequestBody Customer customer){
 				
 		Customer updatedCustomer= customerService.updateCustomerCreditLimit(custId, customer);
-		ResponseEntity<Customer> re=new ResponseEntity<Customer>(updatedCustomer,HttpStatus.OK);
-		return re;
+		return updatedCustomer;
 }
 }

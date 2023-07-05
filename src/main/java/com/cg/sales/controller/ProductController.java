@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.sales.entity.Customer;
 import com.cg.sales.entity.Product;
 import com.cg.sales.service.ProductService;
 
@@ -65,7 +63,7 @@ public class ProductController {
 	 * Delete Product By Id
 	 */
 	@DeleteMapping(value = "/products/{prodId}")
-	public ResponseEntity<String> deleteProduct(@PathVariable Integer prodId){
+	public ResponseEntity<String> deleteProduct(@RequestParam(value="prodId") Integer prodId){
 		productService.deleteProduct(prodId);
 		ResponseEntity<String> re=new ResponseEntity<String>("Product with Id:"+prodId+" Deleted Successfully!",HttpStatus.OK);
 		return re;		
@@ -119,6 +117,18 @@ public class ProductController {
 		return productService.searchAllDuplicateProducts();
 	}
 	
+	/*
+	 * Get List of Sold Products
+	 */
+	
+	
+	/*
+	 * Get List of Products Channel wise sold products
+	 */
+	
+	/*
+	 * Get list of products order by query field
+	 */
 	
 	
 }

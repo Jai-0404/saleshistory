@@ -27,7 +27,7 @@ import lombok.ToString;
 public class Countries {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@NotNull(message = "Country id may not be null")
 	private int countryId;
 	

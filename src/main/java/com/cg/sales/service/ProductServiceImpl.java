@@ -1,9 +1,9 @@
 package com.cg.sales.service;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -91,18 +91,29 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> searchAllDuplicateProducts() {
-		List<Product> allProducts = getAllProducts();
-		Set<Product> duplicates = new HashSet<>();
-		List<Product> duplicateProducts = new ArrayList<>();
-		
-		for(Product product : allProducts) {
-			if(!duplicates.add(product)) {
-				duplicateProducts.add(product);
-			}
-		}
-		
-		return duplicateProducts;
+    public List<Product> searchAllDuplicateProducts() {
+         List<Product> allProducts = productRepository.findAll();
+            Map<String, Integer> productCountMap = new HashMap<>();
+            List<Product> duplicateProducts = new ArrayList<>();
+
+            for (Product product : allProducts) {
+                String productName = product.getProdName();
+                productCountMap.put(productName, productCountMap.getOrDefault(productName, 0) + 1);
+            }
+
+            for (Product product : allProducts) {
+                String productName = product.getProdName();
+                if (productCountMap.get(productName) > 1 && !duplicateProducts.contains(product)) {
+                    duplicateProducts.add(product);
+                }
+            }
+
+            return duplicateProducts;
+    }
+
+	@Override
+	public List<Product> getSoldProducts(String prodStatus) {
+		return productRepository.findByProdStatus(prodStatus);
 	}
 
 

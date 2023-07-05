@@ -3,6 +3,7 @@ package com.cg.sales.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -52,19 +53,19 @@ public class Channel {
     @NotNull(message = "Channel Total Id may not be null")
     private int channelTotalId;
     
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.DETACH)
 	@JoinTable(name="costs",
 			joinColumns = {@JoinColumn(name = "channelId")},
             inverseJoinColumns = {@JoinColumn(name = "prodId")})
 	private List<Product> products;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.DETACH)
 	@JoinTable(name="costs",
 			joinColumns = {@JoinColumn(name = "channelId")},
             inverseJoinColumns = {@JoinColumn(name = "timeId")})
 	private List<Time> time;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.DETACH)
 	@JoinTable(name="costs",
 			joinColumns = {@JoinColumn(name = "channelId")},
             inverseJoinColumns = {@JoinColumn(name = "promoId")})

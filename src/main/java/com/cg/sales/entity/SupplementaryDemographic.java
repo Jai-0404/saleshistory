@@ -34,13 +34,13 @@ public class SupplementaryDemographic {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int custId;
 
-    @Column(name="education")
+    @Column(name="education",columnDefinition = "varchar(21)")
     private String education;
 
-    @Column(name="occupation")
+    @Column(name="occupation",columnDefinition = "varchar(21)")
     private String occupation;
     
-    @Column(name="household_size")
+    @Column(name="household_size",columnDefinition = "varchar(21)")
     private String householdSize;
 
     @Column(name="yrs_residence")
@@ -70,7 +70,7 @@ public class SupplementaryDemographic {
     @Column(name="os_doc_set_kanji")
     private int osDocSetKanji;
 
-    @Column(name="comments")
+    @Column(name="comments",columnDefinition = "varchar(4000)")
     private String comments;
 
 }
