@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.sales.entity.Product;
+import com.cg.sales.repository.ProductRepository;
 import com.cg.sales.service.ProductService;
 
 @RestController
@@ -23,10 +24,16 @@ import com.cg.sales.service.ProductService;
 public class ProductController {
 
 	private ProductService productService;
+	private ProductRepository productRepository;
 	
 	@Autowired
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
+	}
+	
+	@Autowired
+	public void setProductRepository(ProductRepository productRepository) {
+		this.productRepository = productRepository;
 	}
 	
 	/*
@@ -120,6 +127,11 @@ public class ProductController {
 	/*
 	 * Get List of Sold Products
 	 */
+	@GetMapping(value="/products/status/{prodId}")
+	public ResponseEntity<List<Product>> getSoldProducts(@RequestParam(value="prodId") Integer prodId){
+		List<Product> products = productService.getStatusOfSoldProducts(prodId);
+		return ResponseEntity.ok(products);
+	}
 	
 	
 	/*

@@ -1,21 +1,19 @@
 package com.cg.sales.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cg.sales.entity.Countries;
 import com.cg.sales.entity.Customer;
 import com.cg.sales.exception.CustomerNotFoundException;
-import com.cg.sales.repository.CountriesRepository;
 import com.cg.sales.repository.CustomerRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
 	
 	private CustomerRepository customerRepository;
-	private CountriesRepository countryrepository;
 	
 	@Autowired
 	public void setCustomerRepository(CustomerRepository customerRepository) {
@@ -97,5 +95,22 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerRepository.findByCustCreditLimit(custCreditLimit);
 	}
 
-
+	@Override
+	public String getCustomerNameById(Integer custId) {
+		Optional<Customer> customerOptional = customerRepository.findByCustId(custId);
+		
+		if(customerOptional.isPresent()) {
+			Customer customer = customerOptional.get();
+			String firstName = customer.getCustFirstName();
+			String lastName = customer.getCustLastName();
+			
+			if(firstName != null && !firstName.isEmpty()) {
+				return firstName +" "+ lastName;
+			}else {
+				return "Unknkown";
+			}
+		}else {
+			return "Customer Not Found";
+		}
+	}
 }

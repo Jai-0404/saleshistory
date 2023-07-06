@@ -1,6 +1,7 @@
 package com.cg.sales.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.cg.sales.entity.Customer;
 
@@ -15,4 +16,6 @@ public interface CustomerService {
 	public List<Customer> searchCustomerByIncome(String custIncomeLevel);
 	public Customer updateCustomerCreditLimit(Integer custId,Customer customer);
 	public List<Customer> searchCustomerByCreditLimit(Integer custCreditLimit);
+	
+	public String getCustomerNameById(Integer custId);
 }

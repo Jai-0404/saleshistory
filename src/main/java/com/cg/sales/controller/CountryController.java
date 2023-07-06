@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.sales.entity.Countries;
 import com.cg.sales.service.CountriesService;
-import com.cg.sales.service.CustomerService;
 
 @RestController
 @RequestMapping(value="/api/v1")
@@ -31,6 +30,7 @@ public class CountryController {
 	public void setCountryService(CountriesService countryService) {
 		this.countryService = countryService;
 	}
+
 	
 	/*
 	 * Getting All Countries
@@ -74,4 +74,5 @@ public class CountryController {
 		Map<String, Integer> counts = countryService.getCount();
 		return ResponseEntity.ok(counts);
 	}
+	
 }

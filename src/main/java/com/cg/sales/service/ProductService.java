@@ -2,7 +2,6 @@ package com.cg.sales.service;
 
 import java.util.List;
 
-import com.cg.sales.entity.Customer;
 import com.cg.sales.entity.Product;
 
 public interface ProductService {
@@ -19,6 +18,6 @@ public interface ProductService {
 	
 	public List<Product> searchAllDuplicateProducts();
 	
-	public List<Product> getSoldProducts(String prodStatus);
+	public List<Product> getStatusOfSoldProducts(Integer prodId);
 	
 }

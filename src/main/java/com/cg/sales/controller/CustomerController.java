@@ -1,6 +1,7 @@
 package com.cg.sales.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,22 +17,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.sales.dto.CustomerResponse;
 import com.cg.sales.entity.Customer;
 import com.cg.sales.repository.CustomerRepository;
 import com.cg.sales.service.CustomerService;
-import com.google.common.base.Optional;
 
 @RestController
 @RequestMapping(value="/api/v1")
 public class CustomerController {
 
 	private CustomerService customerService;
+	private CustomerRepository customerRepository;
 	
 	@Autowired
 	public void setCustomerService(CustomerService customerService) {
 		this.customerService = customerService;
 	}
 
+	@Autowired
+	public void setCustomerRepository(CustomerRepository customerRepository) {
+		this.customerRepository = customerRepository;
+	}
 	
 	/*
 	 * Post Mapping for Customer Entity
@@ -52,6 +58,11 @@ public class CustomerController {
 		ResponseEntity<Customer> re=new ResponseEntity<Customer>(customer,HttpStatus.OK);
 		return re;
 		
+	}
+	
+	@GetMapping(value = "/customers/name/{custId}")
+	public String getCustomerName(@RequestParam(value="custId") Integer custId) {
+		return customerService.getCustomerNameById(custId);
 	}
 	
 	/*
@@ -133,5 +144,13 @@ public class CustomerController {
 				
 		Customer updatedCustomer= customerService.updateCustomerCreditLimit(custId, customer);
 		return updatedCustomer;
-}
+	}
+	
+	@GetMapping(value="/csutomers/getAllInformation")
+	public List<CustomerResponse> getAllInformation(){
+		return customerRepository.getInformation();
+	}
+	
+	
+	
 }

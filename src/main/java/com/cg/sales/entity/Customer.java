@@ -115,28 +115,28 @@ public class Customer {
 	@Column(name="cust_valid",columnDefinition = "varchar(1)")
 	private String custValid;
 	
-	@ManyToMany(cascade = CascadeType.DETACH)
-	@JoinTable(name="sales",
-			joinColumns = {@JoinColumn(name = "custId")},
-            inverseJoinColumns = {@JoinColumn(name = "prodId")})
-	private List<Product> products;
-	
-	@ManyToMany(cascade = CascadeType.DETACH)
-	@JoinTable(name="sales",
-			joinColumns = {@JoinColumn(name = "custId")},
-            inverseJoinColumns = {@JoinColumn(name = "channelId")})
-	private List<Channel> channels;
-	
-	@ManyToMany(cascade = CascadeType.DETACH)
-	@JoinTable(name="sales",
-			joinColumns = {@JoinColumn(name = "custId")},
-            inverseJoinColumns = {@JoinColumn(name = "timeId")})
-	private List<Time> time;
-	
-	@ManyToMany(cascade = CascadeType.DETACH)
-	@JoinTable(name="sales",
-			joinColumns = {@JoinColumn(name = "custId")},
-            inverseJoinColumns = {@JoinColumn(name = "promoId")})
-	private List<Promotion> promotions;
+//	@ManyToMany(cascade = CascadeType.DETACH)
+//	@JoinTable(name="sales",
+//			joinColumns = {@JoinColumn(name = "custId")},
+//            inverseJoinColumns = {@JoinColumn(name = "prodId")})
+//	private List<Product> products;
+//	
+//	@ManyToMany(cascade = CascadeType.DETACH)
+//	@JoinTable(name="sales",
+//			joinColumns = {@JoinColumn(name = "custId")},
+//            inverseJoinColumns = {@JoinColumn(name = "channelId")})
+//	private List<Channel> channels;
+//	
+//	@ManyToMany(cascade = CascadeType.DETACH)
+//	@JoinTable(name="sales",
+//			joinColumns = {@JoinColumn(name = "custId")},
+//            inverseJoinColumns = {@JoinColumn(name = "timeId")})
+//	private List<Time> time;
+//	
+//	@ManyToMany(cascade = CascadeType.DETACH)
+//	@JoinTable(name="sales",
+//			joinColumns = {@JoinColumn(name = "custId")},
+//            inverseJoinColumns = {@JoinColumn(name = "promoId")})
+//	private List<Promotion> promotions;
 }
 

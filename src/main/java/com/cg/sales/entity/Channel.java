@@ -53,23 +53,23 @@ public class Channel {
     @NotNull(message = "Channel Total Id may not be null")
     private int channelTotalId;
     
-    @ManyToMany(cascade = CascadeType.DETACH)
-	@JoinTable(name="costs",
-			joinColumns = {@JoinColumn(name = "channelId")},
-            inverseJoinColumns = {@JoinColumn(name = "prodId")})
-	private List<Product> products;
-	
-	@ManyToMany(cascade = CascadeType.DETACH)
-	@JoinTable(name="costs",
-			joinColumns = {@JoinColumn(name = "channelId")},
-            inverseJoinColumns = {@JoinColumn(name = "timeId")})
-	private List<Time> time;
-	
-	@ManyToMany(cascade = CascadeType.DETACH)
-	@JoinTable(name="costs",
-			joinColumns = {@JoinColumn(name = "channelId")},
-            inverseJoinColumns = {@JoinColumn(name = "promoId")})
-	private List<Promotion> promotions;
+//    @ManyToMany(cascade = CascadeType.DETACH)
+//	@JoinTable(name="costs",
+//			joinColumns = {@JoinColumn(name = "channelId")},
+//            inverseJoinColumns = {@JoinColumn(name = "prodId")})
+//	private List<Product> products;
+//	
+//	@ManyToMany(cascade = CascadeType.DETACH)
+//	@JoinTable(name="costs",
+//			joinColumns = {@JoinColumn(name = "channelId")},
+//            inverseJoinColumns = {@JoinColumn(name = "timeId")})
+//	private List<Time> time;
+//	
+//	@ManyToMany(cascade = CascadeType.DETACH)
+//	@JoinTable(name="costs",
+//			joinColumns = {@JoinColumn(name = "channelId")},
+//            inverseJoinColumns = {@JoinColumn(name = "promoId")})
+//	private List<Promotion> promotions;
     
 
 }

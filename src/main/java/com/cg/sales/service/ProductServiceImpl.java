@@ -112,8 +112,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
 	@Override
-	public List<Product> getSoldProducts(String prodStatus) {
-		return productRepository.findByProdStatus(prodStatus);
+	public List<Product> getStatusOfSoldProducts(Integer prodId) {
+		return productRepository.findByProdId(prodId);
 	}
 
 
